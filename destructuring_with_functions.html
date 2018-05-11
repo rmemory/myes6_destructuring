@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		 * Example 1, returning multiple values from function
+		 */
+		function convertCurrency(amount) {
+			const converted = {
+				USD: amount * 0.76,
+				GBP: amount * 0.53,
+				AUD: amount * 1.01,
+				MEX: amount * 13.30
+			};
+
+			return converted;
+		}
+		
+		// Convert 100 Candian dollars
+		const converted = convertCurrency(100);
+
+		//The old way to get USD value
+		console.log(converted.USD);
+		// The old way to get MEX pesos
+		console.log(converted.MEX);
+
+		// With destructuring you can destructure the returned object
+		// and effectively get multiple values returned.
+		const { USD, GBP, AUD } = convertCurrency(100);
+		// Note that order doesn't matter
+		console.log(USD, GBP, AUD);
+
+		/*
+		 * Example 2. using default values for function inputs
+		 */
+		 // The old way without destructuring input args
+		 function tipCalc(total, tip = 0.15, tax = 0.13) {
+			return total + (tip * total) + (tax * total);
+		 }
+
+		 const myTotal = tipCalc(5, undefined, 0.12);
+
+		 // The new way
+		function tipCalc2({total, tip = 0.15, tax = 0.13}) {
+			return total + (tip * total) + (tax * total);
+		 }
+		 // Note that order of args doesn't matter, and not need to 
+		 // supply undefined for tip (default value will be used)
+		 const myTotal2 = tipCalc2({total: 5, tax: 0.12});
+
+
+		 /*
+		  * Example 3 -- Allowing all default values
+		  */
+		 function tipCalc3({total=100, tip = 0.15, tax = 0.13} = {}) {
+			return total + (tip * total) + (tax * total);
+		 }
+		 // All default values will be used here
+		 const myTotal2 = tipCalc2();
+	</script>
+</body>
+</html>

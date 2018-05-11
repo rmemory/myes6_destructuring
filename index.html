@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Destructuring</title>
+</head>
+<body>
+	<script>
+		// Simple example
+		const person = {
+			first: 'Richard',
+			last: 'Memory',
+			country: 'USA',
+			city: 'Atlanta',
+			twitter: '@rmemory'
+		};
+		
+		// You can do this:
+		// const first = person.first;
+		// const last = person.last;
+
+		// Or you can do this
+		const { first, last, twitter } = person;
+
+		// More complicated example
+		const anotherPerson = {
+			first: 'Richard',
+			last: 'Memory',
+			links: {
+				social: {
+					twitter: 'https://twitter.com/rmemory',
+					facebook: 'https://facebook.com/blahblah'
+				},
+				web: {
+					blog: 'https://whocares.com'
+				}
+			},
+			country: 'USA',
+			city: 'Atlanta',
+			twitter: '@rmemory'
+		};
+
+		// The crappy way
+		// const twitter = anotherPerson.links.social.twitter;
+		// const facebook = anotherPerson.links.social.facebook;
+
+		// The desconstructor way
+		const { twitter, facebook } = anotherPerson.links.social;
+
+		// An example which performs rename
+		const { twitter:tweet, facebook:fb } = anotherPerson.links.social;
+
+		// An example providing defaults
+		const settings = { width: 300, color: 'black'}
+		const { width = 100, height = 100, color = 'blue', fontSize=25 } = settings;
+		//width will be 300, height will be 100, color will be 'black', fontSize = 25
+
+		// Another example
+		const { w: width = 400, h: height = 500 } = { w: 800 }
+		// width = 800, height = 500
+
+
+		// variable swapping using destructuring
+		let inRing = 'Hulk Hogan';
+		let onSide = 'The Rock';
+
+		[inRing, onSide] = [onSide, inRing];
+
+	</script>
+</body>
+</html>

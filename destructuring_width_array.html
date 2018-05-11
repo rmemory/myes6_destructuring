@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		const details = ['Richard Memory', 123, 'memory.com'];
+
+		// The old way
+		const name = details[0];
+		const number = details[1];
+
+		// The new way, using destructuring
+		const [name, id, website] = details;
+
+		// Creating an array from a string with common deliminator
+		const data = 'Basketball, Sports, 90210,23';
+		const [itemName, category, sku, inventory] = data.split(',');
+
+		// An example using the "rest" operator to get the rest of the string
+		const team = ['Richard', 'Fred', 'Harry', 'Keegan', 'Riker'];
+		const [captain, assistant, ...players] = team;
+
+
+	</script>
+</body>
+</html>
