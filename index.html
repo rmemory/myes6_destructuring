@@ -8,7 +8,9 @@
 </head>
 <body>
 	<script>
-		// Simple example
+		/* 
+		 * Example #1 .... A simple example of object destructuring
+		 */
 		const person = {
 			first: 'Richard',
 			last: 'Memory',
@@ -24,7 +26,12 @@
 		// Or you can do this
 		const { first, last, twitter } = person;
 
-		// More complicated example
+		// The above will create three variables (first, last, and twitter).
+		// Note that the example ignores country and city from the object
+
+		/*
+		 * Example #2 ... More complicated example
+		 */
 		const anotherPerson = {
 			first: 'Richard',
 			last: 'Memory',
@@ -49,24 +56,28 @@
 		// The desconstructor way
 		const { twitter, facebook } = anotherPerson.links.social;
 
-		// An example which performs rename
+		/*
+		 * Example 3: An example which performs variable rename
+		 */
 		const { twitter:tweet, facebook:fb } = anotherPerson.links.social;
+		// creates tweet and fb variables
 
-		// An example providing defaults
-		const settings = { width: 300, color: 'black'}
+		/* 
+		 * Example 4: An example providing defaults
+		 */
+		const settings = { width: 300, color: 'black'} // This is an object
+
+		// Create variables using destructuring
 		const { width = 100, height = 100, color = 'blue', fontSize=25 } = settings;
-		//width will be 300, height will be 100, color will be 'black', fontSize = 25
+		//width will be 300 (it was already set), height will be 100, 
+		// color will be 'black' (it was already set), fontSize = 25
 
-		// Another example
+		// Example 5: Another example with defaults and rename
 		const { w: width = 400, h: height = 500 } = { w: 800 }
-		// width = 800, height = 500
 
-
-		// variable swapping using destructuring
-		let inRing = 'Hulk Hogan';
-		let onSide = 'The Rock';
-
-		[inRing, onSide] = [onSide, inRing];
+		// Original object has a single property, w, which has a value of
+		// 800. The destructuring would set its width to be 400, but since
+		// w is already set to 800, it means width = 800, and height = 500
 
 	</script>
 </body>

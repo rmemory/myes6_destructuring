@@ -10,6 +10,7 @@
 	<script>
 		/*
 		 * Example 1, returning multiple values from function
+		 * 			  with destructuring (because it returns an object)
 		 */
 		function convertCurrency(amount) {
 			const converted = {
@@ -38,15 +39,19 @@
 
 		/*
 		 * Example 2. using default values for function inputs
+		 * 			  with destructuring of input args
 		 */
 		 // The old way without destructuring input args
-		 function tipCalc(total, tip = 0.15, tax = 0.13) {
+		function tipCalc(total, tip = 0.15, tax = 0.13) {
 			return total + (tip * total) + (tax * total);
 		 }
 
 		 const myTotal = tipCalc(5, undefined, 0.12);
 
-		 // The new way
+		 // The new way (notice the curly brackets)
+		 // In these examples, we are passing an object
+		 // to the function, and the arg list in the function
+		 // destructures that object
 		function tipCalc2({total, tip = 0.15, tax = 0.13}) {
 			return total + (tip * total) + (tax * total);
 		 }

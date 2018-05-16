@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+		/*
+		 * Example #1
+		 */
+		const details = ['Richard Memory', 123, 'memory.com'];
+
+		// The crappy way
+		const name = details[0];
+		const number = details[1];
+
+		// The new way, using array destructuring to create three variables
+		// name, id, and website.
+		const [name, id, website] = details;
+
+		/*
+		 * Example #2
+		 */ 
+		// Creating an array from a string with common deliminator
+		const data = 'Basketball, Sports, 90210,23, goober, stuff';
+		// Note that data.split returns an array
+		const [itemName, category, sku, inventory] = data.split(',');
+		// Note if the destructure array has fewer vars than are in the 
+		// original data, the extra data just gets ignored such as 
+		// goober and stuff above get ignored. But if you do want the
+		// rest, then see the next example ...
+
+		/*
+		 * Example #3
+		 */
+		// An example using the "rest" operator to get the rest of the string
+		const team = ['Richard', 'Fred', 'Harry', 'Keegan', 'Riker'];
+		const [captain, assistant, ...players] = team;
+		// This creates captain='Richard', assistant='Fred', and players is
+		// an array of strings containing the other names from the original data
+
+		/*
+		 * Example #4, swapping variable values
+		 */
+
+		// variable swapping using destructuring
+		let inRing = 'Hulk Hogan';
+		let onSide = 'The Rock';
+
+		[inRing, onSide] = [onSide, inRing];
+
+	</script>
+</body>
+</html>
